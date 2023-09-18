@@ -1,0 +1,33 @@
+<div class="all-content">
+  <div id="dataTable">
+    <!-- Bắt đầu phần bảng hiển thị dữ liệu -->
+    <table>
+      <thead>
+        <tr>
+          <th>Timestamp</th>
+          <th>Temperature</th>
+          <th>Humidity</th>
+          <th>Light</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Các hàng dữ liệu sẽ được thêm ở đây bằng JavaScript -->
+      </tbody>
+    </table>
+    <!-- Kết thúc phần bảng hiển thị dữ liệu -->
+
+    <!-- Bắt đầu phần phân trang -->
+    <div id="pagination">
+      <button id="prevPageButton">Trang trước</button>
+      <span id="currentPage">Trang 1</span>
+      <button id="nextPageButton">Trang tiếp theo</button>
+    </div>
+    <!-- Kết thúc phần phân trang -->
+  </div>
+</div>
+
+<tr>
+  <td>${item.timestamp}</td>
+  <td>${state1}</td>
+  <td>${state2}</td>
+</tr>

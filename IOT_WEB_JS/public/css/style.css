@@ -371,12 +371,12 @@ body {
 .toggle-button {
   width: 60px;
   height: 30px;
-  background-color: #fff;
+  background-color: #2e2832;
   border-radius: 15px;
   position: relative;
   transition: background-color 0.3s ease;
 }
-.toggle-button::before {
+/* .toggle-button::before {
   content: "";
   position: absolute;
   top: 5px;
@@ -386,8 +386,8 @@ body {
   background-color: #d1d1d1;
   border-radius: 50%;
   transition: transform 0.3s ease;
-}
-.active-button {
+} */
+#active-button {
   background: #6ccc7a;
 }
 .active-button::before {
@@ -622,7 +622,7 @@ th {
 #img-pan {
   height: 30px;
   width: 30px;
-  background-color: #2a272c;
+  background-color: #725c81;
   margin-right: 10px;
   border-radius: 50%;
 }

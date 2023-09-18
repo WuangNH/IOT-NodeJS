@@ -32,19 +32,21 @@ document.addEventListener("DOMContentLoaded", function () {
       },
       series: [
         {
-          name: "Temperature",
-          data: data.map((record) => [
-            new Date(record.timestamp).getTime(),
-            record.temperature,
-          ]),
-        },
-        {
           name: "Humidity",
           data: data.map((record) => [
             new Date(record.timestamp).getTime(),
             record.humidity,
           ]),
         },
+        {
+          name: "Temperature",
+          data: data.map((record) => [
+            new Date(record.timestamp).getTime(),
+            record.temperature,
+          ]),
+          color: "#d52121",
+        },
+
         {
           name: "Light",
           data: data.map((record) => [

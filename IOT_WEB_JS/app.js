@@ -182,6 +182,19 @@ app.post("/control-relay", (req, res) => {
 });
 
 
+// Tạo một endpoint để cung cấp dữ liệu từ MQTT broker cho trang web
+app.get("/mqtt-data", (req, res) => {
+  // Đọc dữ liệu từ MQTT broker và trả về cho trang web
+  const mqttData = {
+    relay1: "on", // Đọc trạng thái đèn 1 từ MQTT broker
+    relay2: "off", // Đọc trạng thái đèn 2 từ MQTT broker
+    // Thêm các trạng thái khác cần thiết từ MQTT broker
+  };
+
+  res.json(mqttData);
+});
+
+
 
 
 

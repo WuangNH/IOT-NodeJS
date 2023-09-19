@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Boxicons -->
+    <link
+      href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <!-- My CSS -->
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/style1.css" />
+    <link rel="stylesheet" href="./css/style2.css" />
+
+    <title>Nguyễn Huy Quang</title>
+  </head>
+  <body>
+    <!-- Dashboard -->
+    <!-- SIDEBAR -->
+    <section id="sidebar">
+      <a href="#" class="brand">
+        <i class="bx"></i>
+        <span class="text">Categories IOT</span>
+      </a>
+      <ul class="side-menu top">
+        <li id="dashbroad-btn">
+          <a href="#">
+            <i class="bx bxs-dashboard"></i>
+            <span class="text">Dashboard</span>
+          </a>
+        </li>
+        <li id="profile-btn">
+          <a href="#">
+            <i class="bx bx-user-circle"></i>
+            <span class="text">Profile</span>
+          </a>
+        </li>
+        <li id="logging-btn">
+          <a href="#">
+            <i class="bx bxl-discord"></i>
+            <span class="text">Record Log</span>
+          </a>
+        </li>
+        <li id="ation-btn">
+          <a href="#">
+            <i class="bx bxl-discord"></i>
+            <span class="text">Record Action</span>
+          </a>
+        </li>
+      </ul>
+      <ul class="side-menu"></ul>
+    </section>
+    <!-- SIDEBAR -->
+
+    <!-- Dashboard -->
+    <!-- CONTENT -->
+    <section id="content">
+      <!-- NAVBAR -->
+      <nav>
+        <i class="bx bx-menu"></i>
+        <a href="#" class="nav-link">Categories</a>
+        <form action="#">
+          <div class="form-input">
+            <input type="search" placeholder="Search..." />
+            <button type="submit" class="search-btn">
+              <i class="bx bx-search"></i>
+            </button>
+          </div>
+        </form>
+        <input type="checkbox" id="switch-mode" hidden />
+        <label for="switch-mode" class="switch-mode"></label>
+        <a href="#" class="notification">
+          <i class="bx bxs-bell"></i>
+          <span class="num">8</span>
+        </a>
+        <a href="#" class="profile">
+          <img src="./img/Quang (2).jpg" />
+        </a>
+      </nav>
+      <!-- NAVBAR -->
+
+      <!-- MAIN -->
+      <main class="dashbroad-main">
+        <div class="head-title">
+          <div class="left">
+            <h1>Dashboard</h1>
+            <ul class="breadcrumb">
+              <li>
+                <a href="#">Dashboard</a>
+              </li>
+              <li><i class="bx bx-chevron-right"></i></li>
+              <li>
+                <a class="active" href="#">Home</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <ul class="box-info">
+          <li>
+            <i class="bx bxs-thermometer"></i>
+            <span class="text">
+              <h3>
+                <span id="temperatureDisplay"></span>
+                <span>°C</span>
+              </h3>
+              <p>Nhiệt độ</p>
+            </span>
+          </li>
+          <li>
+            <i class="bx bxs-cloud"></i>
+            <span class="text">
+              <h3>
+                <span id="humidityDisplay"></span>
+                <span>%</span>
+              </h3>
+              <p>Độ ẩm</p>
+            </span>
+          </li>
+
+          <li>
+            <i class="bx bxs-sun"></i>
+            <span class="text">
+              <h3>
+                <span id="lightDisplay"></span>
+                <span>lux</span>
+              </h3>
+              <p>Ánh sáng</p>
+            </span>
+          </li>
+          <li>
+            <i class="bx bxs-sun"></i>
+            <span class="text">
+              <h3>
+                <span id="dustDisplay"></span>
+                <span>%</span>
+              </h3>
+              <p>Độ bụi</p>
+            </span>
+          </li>
+        </ul>
+
+        <div class="content-all">
+          <div class="chart">
+            <div id="chart"></div>
+          </div>
+          <div class="btn-on-off">
+            <div class="content-btn--all">
+              <div id="light-content">
+                <h1 id="ex-pad">
+                  <button id="toggleRelay1" onclick="toggleRelay1()">
+                    CONTROL
+                  </button>
+                </h1>
+                <div class="toggle-container">
+                  <div class="toggle-button" id="img-light"></div>
+                </div>
+              </div>
+              <div id="pan-content">
+                <h1 id="ex-pad">
+                  <button id="toggleRelay2" onclick="toggleRelay2()">
+                    CONTROL
+                  </button>
+                </h1>
+
+                <div class="toggle-container">
+                  <div class="toggle-button" id="img-pan"></div>
+                </div>
+              </div>
+              <div id="pan-content">
+                <h1 id="ex-pad">
+                  <button id="toggleRelay3" onclick="toggleRelay3()">
+                    CONTROL
+                  </button>
+                </h1>
+
+                <div class="toggle-container">
+                  <div class="toggle-button" id="img-extra"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </section>
+
+    <!-- Profile -->
+    <section id="bg-light">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 mb-4 mb-sm-5">
+            <div class="card card-style1 border-0">
+              <div class="card-body p-1-9 p-sm-2-3 p-md-6 p-lg-7">
+                <div class="row align-items-center">
+                  <div class="col-lg-6 mb-4 mb-lg-0">
+                    <img
+                      id="img-quang"
+                      src="https://bootdey.com/img/Content/avatar/avatar7.png"
+                      alt="..."
+                    />
+                  </div>
+                  <div class="col-lg-6 px-xl-10">
+                    <!-- <div class="bg-secondary d-lg-inline-block py-1-9 px-1-9 px-sm-6 mb-1-9 rounded">
+										<h3 class="h2 text-white mb-0">John mark Doe Kyzer</h3>
+										<span class="text-primary">Coach</span>
+									</div> -->
+                    <ul class="list-unstyled mb-1-9 text-profile">
+                      <li class="mb-2 mb-xl-3 display-28">
+                        <span
+                          class="display-26 text-secondary me-2 font-weight-600"
+                          >Name:</span
+                        >
+                        Nguyễn Huy Quang - B20DCAT144
+                      </li>
+                      <li class="mb-2 mb-xl-3 display-28">
+                        <span
+                          class="display-26 text-secondary me-2 font-weight-600"
+                          >Position:</span
+                        >
+                        Pentester
+                      </li>
+                      <li class="mb-2 mb-xl-3 display-28">
+                        <span
+                          class="display-26 text-secondary me-2 font-weight-600"
+                          >Experience:</span
+                        >
+                        2 Years
+                      </li>
+                      <li class="mb-2 mb-xl-3 display-28">
+                        <span
+                          class="display-26 text-secondary me-2 font-weight-600"
+                          >Email:</span
+                        >
+                        huyquang880@mail.com
+                      </li>
+                      <li class="mb-2 mb-xl-3 display-28">
+                        <span
+                          class="display-26 text-secondary me-2 font-weight-600"
+                          >Website:</span
+                        >
+                        www.Quang.com
+                      </li>
+                      <li class="display-28">
+                        <span
+                          class="display-26 text-secondary me-2 font-weight-600"
+                          >Phone:</span
+                        >
+                        0965522777
+                      </li>
+                    </ul>
+                    <ul class="social-icon-style1 list-unstyled mb-0 ps-0">
+                      <li>
+                        <a href="#!"><i class="ti-twitter-alt"></i></a>
+                      </li>
+                      <li>
+                        <a href="#!"><i class="ti-facebook"></i></a>
+                      </li>
+                      <li>
+                        <a href="#!"><i class="ti-pinterest"></i></a>
+                      </li>
+                      <li>
+                        <a href="#!"><i class="ti-instagram"></i></a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-12 mb-4 mb-sm-5">
+            <div>
+              <span class="section-title text-primary mb-3 mb-sm-4"
+                >About Me</span
+              >
+              <p>Tam Quang, Tương Dương, Nghệ An</p>
+              <p class="mb-0">Phone number: 0965522777</p>
+            </div>
+          </div>
+          <div class="col-lg-12">
+            <div class="row">
+              <div class="col-lg-12 mb-4 mb-sm-5">
+                <div class="mb-4 mb-sm-5">
+                  <span class="section-title text-primary mb-3 mb-sm-4"
+                    >Skill</span
+                  >
+                  <div class="progress-text">
+                    <div class="row">
+                      <div class="col-6">Driving range</div>
+                      <div class="col-6 text-end">80%</div>
+                    </div>
+                  </div>
+                  <div
+                    class="custom-progress progress progress-medium mb-3"
+                    style="height: 4px"
+                  >
+                    <div
+                      class="animated custom-bar progress-bar slideInLeft bg-secondary"
+                      style="width: 80%"
+                      aria-valuemax="100"
+                      aria-valuemin="0"
+                      aria-valuenow="10"
+                      role="progressbar"
+                    ></div>
+                  </div>
+                  <div class="progress-text">
+                    <div class="row">
+                      <div class="col-6">Short Game</div>
+                      <div class="col-6 text-end">90%</div>
+                    </div>
+                  </div>
+                  <div
+                    class="custom-progress progress progress-medium mb-3"
+                    style="height: 4px"
+                  >
+                    <div
+                      class="animated custom-bar progress-bar slideInLeft bg-secondary"
+                      style="width: 90%"
+                      aria-valuemax="100"
+                      aria-valuemin="0"
+                      aria-valuenow="70"
+                      role="progressbar"
+                    ></div>
+                  </div>
+                  <div class="progress-text">
+                    <div class="row">
+                      <div class="col-6">Side Bets</div>
+                      <div class="col-6 text-end">50%</div>
+                    </div>
+                  </div>
+                  <div
+                    class="custom-progress progress progress-medium mb-3"
+                    style="height: 4px"
+                  >
+                    <div
+                      class="animated custom-bar progress-bar slideInLeft bg-secondary"
+                      style="width: 50%"
+                      aria-valuemax="100"
+                      aria-valuemin="0"
+                      aria-valuenow="70"
+                      role="progressbar"
+                    ></div>
+                  </div>
+                  <div class="progress-text">
+                    <div class="row">
+                      <div class="col-6">Putting</div>
+                      <div class="col-6 text-end">60%</div>
+                    </div>
+                  </div>
+                  <div
+                    class="custom-progress progress progress-medium"
+                    style="height: 4px"
+                  >
+                    <div
+                      class="animated custom-bar progress-bar slideInLeft bg-secondary"
+                      style="width: 60%"
+                      aria-valuemax="100"
+                      aria-valuemin="0"
+                      aria-valuenow="70"
+                      role="progressbar"
+                    ></div>
+                  </div>
+                </div>
+                <div>
+                  <span class="section-title text-primary mb-3 mb-sm-4"
+                    >Education</span
+                  >
+                  <p>
+                    I am a final year student at the Post and Telecommunications
+                    Institute of Technology, majoring in Information Security
+                    Technology
+                  </p>
+                  <p class="mb-1-9"></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Record Log -->
+    <section id="logging">
+      <div class="tile-log">
+        Ghi lại các dữ liệu về nhiệt độ, độ ẩm, ánh sáng.
+      </div>
+      <div class="all-content">
+        <div id="dataTable"></div>
+      </div>
+    </section>
+
+    <!-- Record Action -->
+    <section id="btn-record">
+      <div class="tile-log">Ghi lại các hoạt động của đèn và quạt.</div>
+      <div class="all-content">
+        <div id="actionTable"></div>
+      </div>
+    </section>
+
+    <!-- CONTENT -->
+
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="./script/script.js"></script>
+    <script src="./script/api1.js"></script>
+    <script src="./script/api2.js"></script>
+    <script src="./script/chart.js"></script>
+    <script src="./script/button.js"></script>
+  </body>
+</html>

@@ -60,6 +60,7 @@ function displayDataOnPage2(data, page) {
       const formattedTimestamp = formatTimestamp2(item.timestamp);
       const state1 = formatState2(item.state_1);
       const state2 = formatState2(item.state_2);
+      const state3 = formatState2(item.state_3);
       return `
         <tr>
           <td>${formattedTimestamp}</td>

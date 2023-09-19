@@ -1,3 +1,9 @@
+
+
+
+
+
+
 document.addEventListener("DOMContentLoaded", function () {
   let chart = null; // Biến để lưu đối tượng biểu đồ
 
@@ -7,15 +13,12 @@ document.addEventListener("DOMContentLoaded", function () {
     function mapLightValue(light) {
       return (100 - ((light - 99) / (1024 - 99)) * 100).toFixed(2); // Định dạng giá trị light với 2 chữ số sau dấu phẩy
     }
-
-    // Lấy danh sách các giá trị "Light" đã được chuyển đổi
-    const lightData = data.map((record) => mapLightValue(record.light));
-
+  
     const chartOptions = {
       chart: {
         type: "area", // Thay đổi loại biểu đồ thành "area"
-        height: 350,
-        colors: ["#FD7238", "#3C91E6", "#FFCE26"],
+        height: 385,
+        colors: ["#FD7238", "#3C91E6", "#FFCE26", "#FF5733"], // Thêm màu cho "db"
         animations: {
           enabled: false, // Tắt chuyển động khi biểu đồ được tải lại
         },
@@ -46,7 +49,6 @@ document.addEventListener("DOMContentLoaded", function () {
           ]),
           color: "#d52121",
         },
-
         {
           name: "Light",
           data: data.map((record) => [
@@ -73,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function () {
         horizontalAlign: "left",
       },
     };
-
+  
     // Kiểm tra xem biểu đồ đã tồn tại chưa
     if (chart) {
       chart.updateOptions(chartOptions);
@@ -90,8 +92,16 @@ document.addEventListener("DOMContentLoaded", function () {
       .then((data) => {
         // Xử lý dữ liệu và cắt nó thành 10 bản ghi
         const slicedData = data.slice(0, 10);
-        console.log("Dữ liệu mới nhất:", slicedData);
-        updateChart(slicedData);
+
+        // Điều chỉnh múi giờ thành GMT+8 (UTC+8)
+        const adjustedData = slicedData.map((record) => {
+          const timestamp = new Date(record.timestamp);
+          timestamp.setHours(timestamp.getHours() + 7);
+          return { ...record, timestamp: timestamp.toISOString() };
+        });
+
+        console.log("Dữ liệu mới nhất:", adjustedData);
+        updateChart(adjustedData);
       })
       .catch((error) => {
         console.error("Lỗi khi lấy dữ liệu:", error);

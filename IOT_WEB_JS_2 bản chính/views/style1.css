@@ -1,0 +1,20 @@
+/* Định nghĩa keyframes với tên là "rotate" */
+@keyframes rotate {
+  /* Định nghĩa các khung hình cho hiệu ứng quay */
+  from {
+    transform: rotate(0deg); /* Khung hình ban đầu */
+  }
+  to {
+    transform: rotate(360deg); /* Khung hình cuối cùng (360 độ) */
+  }
+}
+
+/* Áp dụng animation với tên "rotate" vào phần tử */
+.rotate {
+  animation: rotate 2s linear infinite; /* Thời gian, kiểu chuyển động và lặp vô hạn */
+}
+
+img {
+    height: 60px;
+    width: 60px;
+}

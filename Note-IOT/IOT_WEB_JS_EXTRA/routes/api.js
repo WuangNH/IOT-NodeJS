@@ -11,9 +11,9 @@ const db = mysql.createConnection({
 });
 
 // Định nghĩa một API endpoint để lấy dữ liệu từ bảng sensor_data
-router.get('/sensor_data', (req, res) => {
+router.get('/sensor_data1', (req, res) => {
   // Truy vấn cơ sở dữ liệu để lấy dữ liệu từ bảng sensor_data
-  db.query('SELECT * FROM sensor_data', (err, results) => {
+  db.query('SELECT * FROM sensor_data1', (err, results) => {
     if (err) {
       console.error('Lỗi khi truy vấn cơ sở dữ liệu:', err);
       res.status(500).json({ error: 'Lỗi khi truy vấn cơ sở dữ liệu' });

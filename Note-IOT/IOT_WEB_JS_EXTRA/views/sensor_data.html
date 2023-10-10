@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tìm kiếm dữ liệu Sensor</title>
+</head>
+<body>
+    <h1>Tìm kiếm dữ liệu Sensor</h1>
+    <form id="searchForm">
+        <label for="startTime">Thời gian bắt đầu:</label>
+        <input type="datetime-local" id="startTime" name="startTime" required><br><br>
+
+        <label for="endTime">Thời gian kết thúc:</label>
+        <input type="datetime-local" id="endTime" name="endTime" required><br><br>
+
+        <label for="minTemperature">Nhiệt độ tối thiểu:</label>
+        <input type="number" id="minTemperature" name="minTemperature"><br><br>
+
+        <label for="maxTemperature">Nhiệt độ tối đa:</label>
+        <input type="number" id="maxTemperature" name="maxTemperature"><br><br>
+
+        <label for="minHumidity">Độ ẩm tối thiểu:</label>
+        <input type="number" id="minHumidity" name="minHumidity"><br><br>
+
+        <label for="maxHumidity">Độ ẩm tối đa:</label>
+        <input type="number" id="maxHumidity" name="maxHumidity"><br><br>
+
+        <button type="submit">Tìm kiếm</button>
+    </form>
+
+    <div id="searchResults">
+        <!-- Dữ liệu tìm kiếm sẽ được hiển thị ở đây -->
+    </div>
+
+    <script src="./test.js"></script>
+</body>
+</html>

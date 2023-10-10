@@ -99,8 +99,8 @@
         </div>
 
         <ul class="box-info">
-          <li>
-            <i class="bx bxs-thermometer"></i>
+          <li id="value-display1">
+            <i class="bx bxs-thermometer" ></i>
             <span class="text">
               <h3>
                 <span id="temperatureDisplay"></span>
@@ -109,8 +109,8 @@
               <p>Nhiệt độ</p>
             </span>
           </li>
-          <li>
-            <i class="bx bxs-cloud"></i>
+          <li id="value-display2">
+            <i class="bx bxs-cloud" ></i>
             <span class="text">
               <h3>
                 <span id="humidityDisplay"></span>
@@ -120,8 +120,8 @@
             </span>
           </li>
 
-          <li>
-            <i class="bx bxs-sun"></i>
+          <li id="value-display3">
+            <i class="bx bxs-sun" ></i>
             <span class="text">
               <h3>
                 <span id="lightDisplay"></span>
@@ -130,8 +130,8 @@
               <p>Ánh sáng</p>
             </span>
           </li>
-          <li>
-            <i class="bx bxs-sun"></i>
+          <li id="value-display4">
+            <i class="bx bxs-thermometer" ></i>
             <span class="text">
               <h3>
                 <span id="dustDisplay"></span>
@@ -155,7 +155,7 @@
                   </button>
                 </h1>
                 <div class="toggle-container">
-                  <div class="toggle-button" id="img-light"></div>
+                  <img id="light-icoin1" src="./img/Light.png" alt="">
                 </div>
               </div>
               <div id="pan-content">
@@ -164,9 +164,9 @@
                     CONTROL
                   </button>
                 </h1>
-
                 <div class="toggle-container">
-                  <div class="toggle-button" id="img-pan"></div>
+                  <!-- <div class="toggle-button" id="img-pan"></div> -->
+                  <img id="fan-icoin" src="./img/fan.png" alt="" srcset="">
                 </div>
               </div>
               <div id="pan-content">
@@ -177,7 +177,7 @@
                 </h1>
 
                 <div class="toggle-container">
-                  <div class="toggle-button" id="img-extra"></div>
+                  <img id="light-icoin2" src="./img/Light.png" alt="">
                 </div>
               </div>
             </div>
@@ -384,7 +384,39 @@
       <div class="tile-log">
         Ghi lại các dữ liệu về nhiệt độ, độ ẩm, ánh sáng.
       </div>
-      <div class="all-content">
+      <h1>Tìm kiếm bản ghi</h1>
+      <form id="searchForm">
+         <!-- Thêm ô nhập khoảng thời gian nếu cần -->
+         <label for="startTime">Thời gian bắt đầu:</label>
+         <input type="datetime-local" id="startTime" name="startTime"><br><br>
+       
+         <label for="endTime">Thời gian kết thúc:</label>
+         <input type="datetime-local" id="endTime" name="endTime"><br><br>
+         <button type="button" onclick="clearTimeFields()">Xóa thời gian</button> <br> <br>
+        <label for="temperature">Nhiệt độ (°C):</label>
+        <input type="number" id="temperature" name="temperature" ><br><br>
+      
+        <label for="humidity">Độ ẩm (%):</label>
+        <input type="number" id="humidity" name="humidity" ><br><br>
+      
+        <label for="light">Ánh sáng (Lux):</label>
+        <input type="number" id="light" name="light" ><br><br>
+
+       
+        <button type="submit">Tìm kiếm</button>
+    </form>
+    
+      
+      <br>
+      <button id="appearAPI1" type="submit">
+        Hiển thị lại API
+      </button>
+      <br>
+      <br>
+  
+      <div id="searchResult">
+          <!-- Kết quả tìm kiếm sẽ được hiển thị ở đây -->
+      </div>
         <div id="dataTable"></div>
       </div>
     </section>
@@ -392,6 +424,27 @@
     <!-- Record Action -->
     <section id="btn-record">
       <div class="tile-log">Ghi lại các hoạt động của đèn và quạt.</div>
+      <h1>Tìm kiếm bản ghi</h1>
+      <form id="searchForm2">
+          <label for="startTime2">Thời gian bắt đầu:</label>
+          <input type="datetime-local" id="startTime2" name="startTime2" required><br><br>
+      
+          <label for="endTime2">Thời gian kết thúc:</label>
+          <input type="datetime-local" id="endTime2" name="endTime2" required><br><br>
+      
+          <button type="submit">Tìm kiếm</button>
+      </form>
+      <br>
+      <button id="appearAPI2" type="submit">
+        Hiển thị lại API
+      </button>
+      <br>
+      <br>
+      
+      <div id="searchResult2">
+          <!-- Kết quả tìm kiếm sẽ được hiển thị ở đây -->
+      </div>
+      
       <div class="all-content">
         <div id="actionTable"></div>
       </div>
@@ -405,5 +458,7 @@
     <script src="./script/api2.js"></script>
     <script src="./script/chart.js"></script>
     <script src="./script/button.js"></script>
+    <script src="./script/searchApi1.js"></script>
+    <script src="./script/searchApi2.js"></script>
   </body>
 </html>

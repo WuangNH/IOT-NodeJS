@@ -1,7 +1,7 @@
 
 // Hàm gửi yêu cầu đến máy chủ Node.js để điều khiển Đèn 1
 const toggleButtonRelay1 = document.getElementById("toggleRelay1");
-const toggleButtonLight = document.getElementById("img-light");
+const imgElement = document.getElementById("light-icoin1");
 
 let isRelay1On = false;
 
@@ -11,13 +11,13 @@ function toggleRelay1() {
     // Gửi yêu cầu bật Đèn 1
     turnOnRelay1();
     toggleButtonRelay1.textContent = "Tắt Đèn ";
-    toggleButtonLight.style.backgroundColor = "#6ccc7a"
+    imgElement.style.filter = "hue-rotate(90deg)";
 
   } else {
     // Gửi yêu cầu tắt Đèn 1
     turnOffRelay1();
     toggleButtonRelay1.textContent = "Bật Đèn ";
-    toggleButtonLight.style.backgroundColor = "#2e2832"
+    imgElement.style.filter = "hue-rotate(0deg)";
   }
 }
 
@@ -60,8 +60,32 @@ function turnOffRelay1() {
     });
 }
 
+function turnNNRelay1() {
+  fetch("/control-relay", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      relay1: "nn",
+    }),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data.message);
+      console.log("Nhấp nháy");
+    })
+    .catch((error) => {
+      console.error("Lỗi khi gửi yêu cầu:", error);
+    });
+}
+
+
+
+
 const toggleButtonRelay2 = document.getElementById("toggleRelay2");
 const toggleButtonPan = document.getElementById("img-pan");
+const fanIcon = document.getElementById("fan-icoin");
 
 let isRelay2On = false;
 
@@ -71,14 +95,13 @@ function toggleRelay2() {
     // Gửi yêu cầu bật Đèn 2
     turnOnRelay2();
     toggleButtonRelay2.textContent = "Tắt Quạt ";
-    toggleButtonPan.style.backgroundColor = "#6ccc7a"
+    fanIcon.classList.add("rotate");
 
   } else {
     // Gửi yêu cầu tắt Đèn 2
     turnOffRelay2();
     toggleButtonRelay2.textContent = "Bật Quạt ";
-    toggleButtonPan.style.backgroundColor = "#2e2832"
-
+    fanIcon.classList.remove("rotate");
   }
 }
 
@@ -123,7 +146,7 @@ function turnOffRelay2() {
 
 // Hàm gửi yêu cầu đến máy chủ Node.js để điều khiển Đèn 3
 const toggleButtonRelay3 = document.getElementById("toggleRelay3");
-const toggleButtonExtra = document.getElementById("img-extra");
+const imgElement2 = document.getElementById("light-icoin2");
 
 let isRelay3On = false;
 
@@ -133,13 +156,13 @@ function toggleRelay3() {
     // Gửi yêu cầu bật Đèn 3
     turnOnRelay3();
     toggleButtonRelay3.textContent = "Tắt Đèn 2";
-    toggleButtonExtra.style.backgroundColor = "#6ccc7a"
+    imgElement2.style.filter = "hue-rotate(90deg)";
 
   } else {
     // Gửi yêu cầu tắt Đèn 3
     turnOffRelay3();
     toggleButtonRelay3.textContent = "Bật Đèn 2";
-    toggleButtonExtra.style.backgroundColor = "#2e2832"
+    imgElement2.style.filter = "hue-rotate(0deg)";
 
   }
 }
@@ -182,3 +205,5 @@ function turnOffRelay3() {
       console.error("Lỗi khi gửi yêu cầu:", error);
     });
 }
+
+

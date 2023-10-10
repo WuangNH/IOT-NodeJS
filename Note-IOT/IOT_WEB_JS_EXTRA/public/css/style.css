@@ -360,6 +360,18 @@ body {
   height: 100%;
   margin-right: 20px;
 }
+#bxs-dust {
+  background-color: #fd7238;
+}
+#value-display4 {
+  
+}
+#value-display {
+
+  background-color: #57465c !important;
+
+  transition: background-color 0.5s; /* Thời gian chuyển đổi màu nền */
+}
 .toggle-container {
   display: flex;
   align-items: center;
@@ -628,6 +640,28 @@ th {
   margin-right: 10px;
   border-radius: 50%;
 }
+#fan-icoin.rotate {
+  animation: rotate 1s linear infinite; /* Thời gian, kiểu chuyển động và lặp vô hạn */
+}
+
+
+/* Định nghĩa keyframes với tên là "rotate" */
+@keyframes rotate {
+  /* Định nghĩa các khung hình cho hiệu ứng quay */
+  from {
+    transform: rotate(0deg); /* Khung hình ban đầu */
+  }
+  to {
+    transform: rotate(360deg); /* Khung hình cuối cùng (360 độ) */
+  }
+}
+
+
+
+#light-icoin1,
+#light-icoin2 {
+  filter: hue-rotate(0deg); /* Đổi màu ảnh thành màu xanh lá cây */
+}
 
 #pan-content {
   /* display: flex; */
@@ -638,7 +672,7 @@ th {
 #pan-content {
   border: 1px solid #d27941;
   border-radius: 20px;
-  padding: 3rem 0rem;
+  padding: 2rem 0rem;
   width: 100%;
   display: flex;
   justify-content: center;

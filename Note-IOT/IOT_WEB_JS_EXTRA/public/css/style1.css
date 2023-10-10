@@ -1,0 +1,27 @@
+#dataTable{
+    width: 100%;
+}
+
+#dataTable table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+
+#searchResult{
+    width: 100%;
+}
+
+#searchResult table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#searchResult2{
+    width: 100%;
+}
+
+#searchResult2 table {
+    width: 100%;
+    border-collapse: collapse;
+}

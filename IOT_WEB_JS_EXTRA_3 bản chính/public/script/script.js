@@ -328,7 +328,7 @@ function updateSensorData(data) {
   // Kiểm tra xem có dữ liệu hay không
   if (data.length > 0) {
     const latestData = data[0]; // Lấy bản ghi mới nhất
-    console.log(latestData);
+
     // Cập nhật các phần tử hiển thị với dữ liệu mới
     temperatureDisplay.textContent = latestData.temperature;
     humidityDisplay.textContent = latestData.humidity;
@@ -336,14 +336,41 @@ function updateSensorData(data) {
     lightDisplay.textContent = mappedLight;
     dustDisplay.textContent = latestData.db;
 
-     // Cập nhật màu nền dựa trên giá trị số
-     valueDisplay1.style.backgroundColor = getColorForValue(latestData.temperature);
-     valueDisplay2.style.backgroundColor = getColorForValue(latestData.humidity);
-     valueDisplay3.style.backgroundColor = getColorForValue(mappedLight);
-     valueDisplay4.style.backgroundColor = getColorForValue(latestData.db);
-  
+    // Cập nhật màu nền dựa trên giá trị số
+    valueDisplay1.style.backgroundColor = getColorForValue(latestData.temperature);
+    valueDisplay2.style.backgroundColor = getColorForValue(latestData.humidity);
+    valueDisplay3.style.backgroundColor = getColorForValue(mappedLight);
+
+    // Kiểm tra giá trị của latestData.db và thực hiện nhấp nháy
+    if (latestData.db > 500) {
+      // Sử dụng một biến để theo dõi trạng thái nhấp nháy
+      let isFlashing = false;
+
+      // Sử dụng setInterval để thực hiện nhấp nháy
+      const flashingInterval = setInterval(() => {
+        if (isFlashing) {
+          valueDisplay4.style.backgroundColor = getColorForValue(latestData.db);
+        } else {
+          valueDisplay4.style.backgroundColor = "red";
+        }
+        isFlashing = !isFlashing;
+      }, 500); // Mỗi 500ms thay đổi màu nền
+
+      // Dừng nhấp nháy sau khi giá trị không còn lớn hơn 500
+      const stopFlashingInterval = setInterval(() => {
+        if (latestData.db <= 500) {
+          clearInterval(flashingInterval);
+          clearInterval(stopFlashingInterval);
+          valueDisplay4.style.backgroundColor = getColorForValue(latestData.db);
+        }
+      }, 1000); // Kiểm tra mỗi giây
+
+    } else {
+      valueDisplay4.style.backgroundColor = getColorForValue(latestData.db);
+    }
   }
 }
+
 
 function getColorForValue(value) {
   // Chọn màu cơ bản (ví dụ: "#54006e")

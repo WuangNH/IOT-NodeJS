@@ -17,18 +17,18 @@ bool flashRelay1 = false;
 int state_1;
 
 
-// const char* ssid = "NHQ";
-// const char* password = "Quang112";
-// const char* mqtt_server = "192.168.232.58";
+const char* ssid = "NHQ";
+const char* password = "Quang112";
+const char* mqtt_server = "192.168.232.58";
 
 
 // const char* ssid = "PTIT_WIFI";
 // const char* password = "";
 // const char* mqtt_server = "10.20.42.249";
 
-const char* ssid = "Pass tu 1->9";
-const char* password = "cocaidaubuoiconcac";
-const char* mqtt_server = "192.168.0.102";
+// const char* ssid = "Pass tu 1->9";
+// const char* password = "cocaidaubuoiconcac";
+// const char* mqtt_server = "192.168.0.101";
 
 
 
